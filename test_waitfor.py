@@ -24,3 +24,12 @@ def test_wait_succeeds_after_a_few_polls():
 def test_make_check_recognises_tcp():
     _check, label = waitfor.make_check("tcp://localhost:5432")
     assert label == "TCP localhost:5432"
+
+
+def test_make_check_recognises_http():
+    _check, label = waitfor.make_check("https://example.com/health")
+    assert label.startswith("HTTP")
+
+def test_make_check_bare_host_port():
+    _check, label = waitfor.make_check("db:5432")
+    assert label == "TCP db:5432"
