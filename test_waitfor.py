@@ -33,3 +33,10 @@ def test_make_check_recognises_http():
 def test_make_check_bare_host_port():
     _check, label = waitfor.make_check("db:5432")
     assert label == "TCP db:5432"
+
+
+def test_file_ready(tmp_path):
+    p = tmp_path / "ready"
+    assert waitfor.file_ready(str(p)) is False
+    p.write_text("x", encoding="utf-8")
+    assert waitfor.file_ready(str(p)) is True
