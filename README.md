@@ -26,3 +26,10 @@ Exit code 0 when everything came up, 1 on timeout.
 | `tcp://host:port` or `host:port` | a TCP connection can be opened |
 | `http://…` / `https://…` | a request returns < 400, or `--expect CODE` |
 | `file:///path` or a bare path | the file exists and is non-empty |
+
+## docker-compose
+
+```yaml
+command: >
+  sh -c "python waitfor.py tcp://db:5432 -t 90 && alembic upgrade head && uvicorn app:api"
+```
