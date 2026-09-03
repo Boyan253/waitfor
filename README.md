@@ -33,3 +33,9 @@ Exit code 0 when everything came up, 1 on timeout.
 command: >
   sh -c "python waitfor.py tcp://db:5432 -t 90 && alembic upgrade head && uvicorn app:api"
 ```
+
+## Notes
+
+- Polls every `--interval` seconds (default 0.5).
+- Several targets are waited on in order; the timeout applies per target.
+- `--quiet` suppresses progress so it fits inside a script.
