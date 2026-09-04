@@ -39,3 +39,10 @@ command: >
 - Polls every `--interval` seconds (default 0.5).
 - Several targets are waited on in order; the timeout applies per target.
 - `--quiet` suppresses progress so it fits inside a script.
+
+## Tests
+
+```
+pip install pytest
+pytest
+```
