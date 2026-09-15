@@ -9,6 +9,8 @@ import time
 import urllib.error
 import urllib.request
 
+__version__ = "0.1.0"
+
 
 def tcp_ready(host, port, timeout=2.0):
     try:
@@ -65,6 +67,8 @@ def wait(check, timeout=60.0, interval=0.5, now=time.monotonic, sleep=time.sleep
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--version", action="version",
+                    version="%(prog)s " + __version__)
     ap.add_argument("targets", nargs="+",
                     help="tcp://host:port, http(s)://url, file://path, or host:port")
     ap.add_argument("-t", "--timeout", type=float, default=60.0)
