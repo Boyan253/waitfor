@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "waitfor"
+version = "0.1.0"
+description = "Wait until a TCP port, HTTP URL or file is ready, then exit - the missing sleep in CI scripts."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+classifiers = [
+    "Environment :: Console",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Utilities",
+]
+
+[project.urls]
+Homepage = "https://github.com/Boyan253/waitfor"
+
+[project.scripts]
+waitfor = "waitfor:main"
+
+[tool.setuptools]
+py-modules = ["waitfor"]
